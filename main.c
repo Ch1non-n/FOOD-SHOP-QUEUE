@@ -24,7 +24,7 @@ int main(int argc , char **argv) {
         }
         else {
           enqueue(&headPtr,&tailPtr, atoi(argv[i]));
-          printf("Empty queue\n");
+          //printf("Add : %d\n", atoi(argv[i]));
            
         }
  }
