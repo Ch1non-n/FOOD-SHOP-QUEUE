@@ -1,32 +1,50 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include "Node.h"
+#include <stdlib.h>
 
-#include "Queue.h"
+#include "node.h"
+#include "queue.h"
 
-int main(int argc , char **argv) {
-    NodePtr headPtr=NULL;
-    NodePtr tailPtr=NULL;
-/* For struct Queue*/
-  Queue  q;
-   q.headPtr=NULL;
-   q.tailPtr=NULL;
-   q.size=0;
+int main(int argc, char **argv){
 
-  int i,x;
-   
+    queue q;
+    q.headPtr = NULL, q.tailPtr = NULL;
+    q.size = 0;
 
- for(i=1;i<argc;i++){
-        if(strcmp(argv[i],"x")==0){
-            x=dequeue_struct(&q);
-            if(x != 0) printf("dequeing %d\n",x);
+    printf("====== Menu list ======\n");
+    printf("   1.Ramen 120 baht\n");
+    printf("   1.Miso  45 baht\n");
+    printf("   1.Sushi 20 baht\n");
+    printf("=======================\n");
+
+    int cutomer_count = 0;
+    for(int i = 1; i < argc; i++){
+        if(strcmp(argv[i], "x") == 0){
+            cutomer_count++;
         }
-        else {
-          enqueue_struct(&q, atoi(argv[i]));
-          //printf("Add : %d\n", atoi(argv[i]));
-           
+        else{
+
+            switch(atoi(argv[i])){
+                case 1: 
+                    enqueue(&q, atoi(argv[i+1]));
+                    printf("My order is : %d\n", atoi(argv[i]));
+                    break;
+                case 2:
+                    enqueue(&q, atoi(argv[i+1]));
+                    printf("My order is : %d\n", atoi(argv[i]));
+                    break;
+                case 3:
+                    enqueue(&q, atoi(argv[i+1]));
+                    printf("My order is : %d\n", atoi(argv[i]));
+                    break;
+                default : printf("No Food");
+            }
+            i++;
+            
         }
- }
-  return 0;
+    }
+
+
+    
+    return 0;
 }
