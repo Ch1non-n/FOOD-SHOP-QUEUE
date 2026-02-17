@@ -37,7 +37,7 @@ int main(int argc, char **argv){
 
             int change = cash - price;
             printf("change : %d\n", change);
-            profit += change;
+            profit += price;
         }
         else{
 
@@ -61,6 +61,14 @@ int main(int argc, char **argv){
         }
     }
 
-    if(q.size != 0) printf("There are %d people left in the queue", q.size);
+    printf("=======================\n");
+    printf("Profit : %d\n", profit);
+
+    if(q.size != 0) {
+        printf("There are %d people left in the queue\n", q.size);
+        while(q.size != 0) dequeue(&q);
+        if(q.size == 0) printf("All queue are cleared");
+    }
+
     return 0;
 }

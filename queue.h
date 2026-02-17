@@ -44,7 +44,7 @@ int dequeue(queue *q){
         }
 
         q->headPtr = q->headPtr->nextPtr;
-        if(q->size == 1) q->tailPtr = q->tailPtr->nextPtr;
+        if(q->size == 1) q->tailPtr = NULL;
         free(temp);
         q->size--;
         return price;
